@@ -1,0 +1,2 @@
+iptables -t nat -A POSTROUTING -s 39.8.0.0/24 -o wlan0 -j MASQUERADE
+iptables -I FORWARD -j ACCEPT
