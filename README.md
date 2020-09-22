@@ -1,11 +1,9 @@
 # Rasp-VPN-CustomFW
 
 #### Description ####
-I share this repo since I faced some problems deploing the openvpn server with the redirect-gateway config set to have client that redirect all the traffic to the VPN, in particular I run the openvpn server on a Raspberry PI beyond a private router this generated some problems managing network packets, and made necesary the second iptables rule, that despite the first was not so well documented. 
+I share this repo since I've faced some problems deploing the openvpn server with the redirect-gateway config set to have client that redirect all the traffic to the VPN, in particular I run the openvpn server on a Raspberry PI beyond a private router this generated some problems managing network packets, and made necesary the second iptables rule, that despite the first was not so well documented. 
 This Repo contains all the configurations needed to start an openvpn server that makes the client redirect all the traffic through the VPN when connected. 
 It does not contain the security files that must be create with a Public Key Infrastructure.  
-
-
 
 #### These are the steps to deploy the solution ####
 1. Clone the repo
@@ -22,7 +20,7 @@ It does not contain the security files that must be create with a Public Key Inf
     * The networks used and the ip assigned to the openvpn server.
     * The maxclient that in my case is set to 3. 
     * The askpass to avoid the password prompt
-    * The config pushed to the clients, in my case the redirect-gateway makes the client to redirect toward the VPN all the network traffic. This config makes necessary one of the iptables rule (the FORWARD one)
+    * The config pushed to the clients, in my case the redirect-gateway makes the client redirect toward the VPN all the network traffic. This config makes necessary one of the iptables rule (the FORWARD one)
 6. Eventually change the POSTROUTING rule according to the subnet choosen as vpn and defined in the server.conf file. 
 7. Move/Link the server.conf file in the /etc/openvpn/server/ dir (`ln -s $pwd/server.conf /etc/openvpn/server/server.conf`)
 8. Create the files needed by the openvpn server:
@@ -44,6 +42,6 @@ After that you can check that both the services created are active with the comm
 - `systemctl status openvpn-server@server`
 
 #### Config of the clients ####
-Since I found preferable to push the client config from the server the client.conf remained the same, but the protocol and the references to the openvpn server.
+Since I've found it preferable to push the client config from the server, the client.conf remained the same, but the protocol and the references to the openvpn server.
 
-##### This version of the repo is vulnerable to man in the middle as described at http://openvpn.net/howto.html#mitm more config are needed to avoid this risk, but seems well documented. 
+##### This version of the repo is vulnerable to man in the middle attacks as described at http://openvpn.net/howto.html#mitm more config are needed to avoid this risk, but seems well documented. 
