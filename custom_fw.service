@@ -1,0 +1,14 @@
+[Unit]
+Description=iptables firewall service
+After=network.target
+PartOf=openvpn-server@server.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/custom_firewall.sh start
+RemainAfterExit=true
+ExecStop=/usr/sbin/custom_firewall.sh stop
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
