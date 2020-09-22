@@ -34,13 +34,16 @@ It does not contain the security files that must be create with a Public Key Inf
 9. Submit the command: `systemctl daemon-reload`
 
 #### These are the commands to start the OpenVPN server ####
-If everything is ok you can start the openvpn server with the command: 
-`systemctl start openvpn-server@server` 
-after that you can check that both the services created are active with the commands: 
-`systemctl status custom_fw.service` 
-`systemctl status openvpn-server@server`
+If everything is ok you can start the openvpn server with the command:
+
+- `systemctl start openvpn-server@server` 
+
+After that you can check that both the services created are active with the commands: 
+
+- `systemctl status custom_fw.service` 
+- `systemctl status openvpn-server@server`
 
 #### Config of the clients ####
 Since I found preferable to push the client config from the server the client.conf remained the same, but the protocol and the references to the openvpn server.
 
-##### This version of the repo is vulnerable to man in the middle as described at http://openvpn.net/howto.html#mitm to avoid this more config are needed, but seems well documented. 
+##### This version of the repo is vulnerable to man in the middle as described at http://openvpn.net/howto.html#mitm more config are needed to avoid this risk, but seems well documented. 
