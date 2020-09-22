@@ -1,7 +1,7 @@
 # Rasp-VPN-CustomFW
 
 #### Description ####
-I share this repo since I've faced some problems deploing the openvpn server with the redirect-gateway config set to have client that redirect all the traffic to the VPN, in particular I run the openvpn server on a Raspberry PI beyond a private router this generated some problems managing network packets, and made necesary the second iptables rule, that despite the first was not so well documented. 
+I share this repo since I've faced some problems deploing the openvpn server with the redirect-gateway config set to have client that redirect all the traffic to the VPN, in particular I run the openvpn server on a Raspberry PI behind a private router this generated some problems managing network packets, and made necesary the second iptables rule, that despite the first was not so well documented. 
 This Repo contains all the configurations needed to start an openvpn server that makes the client redirect all the traffic through the VPN when connected. 
 It does not contain the security files that must be create with a Public Key Infrastructure.  
 
